@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name": "GrammarCheck",
+	"version": "1.0",
+	"description": "To check grammar and style of the text",
+
+	"page_action": {
+		"default_title": "Check",
+		"default_popup": "popup.html"
+	},
+
+	"permissions": [
+    "tabs",
+	"contextMenus",
+	"identity",
+	"identity.email"],
+
+    "content_scripts":[
+  	{
+    "matches": ["*://*/*"],
+    "js": ["content.js"],
+    "css": ["content.css"]
+	}],
+
+	"background": {
+    "scripts": ["event.js"],
+    "persistent": false
+  },
+"web_accessible_resources": ["*.png",
+							"content.js",
+							"remove.js"],
+    "oauth2": {
+        "client_id": "807204187397-ulusagph5f1953n1342a3eabbnccsnmm.apps.googleusercontent.com",
+        "scopes": ["https://www.googleapis.com/auth/userinfo.email","profile"]   
+    }
+}
